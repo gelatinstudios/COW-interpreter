@@ -42,6 +42,7 @@ size_t parser(File file, unsigned char tokens[]) {
                 }
                 if (err) {
                         fprintf(stderr, "unable to parse: %s\n", token);
+                        free(file.contents);
                         exit(EXIT_FAILURE);
                 }
                 token = strtok(0, " \n\t");
