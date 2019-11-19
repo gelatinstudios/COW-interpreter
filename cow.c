@@ -87,6 +87,10 @@ EXEC:           switch(instruction) {
 }
 
 int main(int argc, const char *argv[argc + 1]) {
+        if(argc < 2) {
+                puts("no input file");
+                return EXIT_FAILURE;
+        }        
         File file = read_file(argv[1]);
         unsigned char tokens[file.size / 3];
         size_t size = parser(file, tokens);
