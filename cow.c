@@ -10,7 +10,7 @@ typedef struct {
         size_t size;
 } File;
 
-File read_file(const char *filename) {
+inline File read_file(const char *filename) {
         File file = {0};
 
         FILE *f = fopen(filename, "rb");
@@ -26,7 +26,7 @@ File read_file(const char *filename) {
         return file;
 }
 
-size_t parser(File file, unsigned char tokens[]) {
+inline size_t parser(File file, unsigned char tokens[]) {
         size_t token_count = 0;
         char *token = strtok(file.contents, " \n\t");
         while(token) {
@@ -52,7 +52,7 @@ size_t parser(File file, unsigned char tokens[]) {
         return token_count;
 }
 
-void exec(size_t size, unsigned char tokens[size]) {
+inline void exec(size_t size, unsigned char tokens[size]) {
         unsigned char memory[30000] = {0};
         unsigned char reg;
         unsigned char reg_set = 0;
